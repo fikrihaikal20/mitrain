@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  express-app:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run dev
+    ports:
+      - '2000:2000'
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    volumes:
+      - mitrain-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password 
+
+volumes:
+  mitrain-db:
