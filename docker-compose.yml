@@ -8,8 +8,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - '2000:2000'
-    depends_on:
-      - mysql
     environment:
       PORT: 2000
       JWT_SECRET: diuwahiuwahdaiu23133212uihdwa
