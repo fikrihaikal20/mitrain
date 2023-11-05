@@ -20,7 +20,7 @@ app.use(allRoutes)
 
 app.get('/', (req, res) => {
     const nodeEnv = process.env.NODE_ENV;
-    res.send(`API ready in ${nodeEnv} environment boss`);
+    res.send(`API ready in ${nodeEnv} environment bossku`);
 });
 
 const PORT = process.env.PORT;
