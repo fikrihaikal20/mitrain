@@ -8,13 +8,18 @@ COPY package*.json ./
 COPY prisma ./
 COPY tsconfig.json ./
 
-RUN npm install
+ARG NODE_ENV
+RUN if [ "$NODE_ENV" = "development" ]; \
+        then npm install; \
+        else npm install --only=production; \
+        fi
 
 COPY . .
 
 RUN npm run build
-RUN npx prisma generate
 
-EXPOSE 8080
+RUN npm run generate
 
-CMD [ "node", "dist/index.js"]
+EXPOSE 2000
+
+CMD npm run migrate && node dist/indexjs

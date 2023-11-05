@@ -6,13 +6,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: npm run dev
     ports:
       - '2000:2000'
     depends_on:
       - mysql
     environment:
-      DATABASE_URL: mysql://root:password@mysql:1002/mitraindb
       PORT: 2000
       JWT_SECRET: diuwahiuwahdaiu23133212uihdwa
 
