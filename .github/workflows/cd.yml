@@ -2,7 +2,7 @@ name: Node.js CD
 
 on:
   pull_request:
-    branches: ['development']
+    branches: ['develop']
 
 jobs:
   cd:
